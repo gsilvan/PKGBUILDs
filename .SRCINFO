@@ -1,6 +1,6 @@
 pkgbase = elasticdump
 	pkgdesc = Import and export tools for Elasticsearch
-	pkgver = 6.112.0
+	pkgver = 6.114.0
 	pkgrel = 1
 	url = https://github.com/elasticsearch-dump/elasticsearch-dump
 	arch = any
@@ -8,8 +8,8 @@ pkgbase = elasticdump
 	makedepends = npm
 	makedepends = jq
 	depends = nodejs>=8.0
-	noextract = elasticdump-6.112.0.tgz
-	source = https://registry.npmjs.org/elasticdump/-/elasticdump-6.112.0.tgz
-	sha256sums = 9f50c83b79f2e1e37bce6edf504ecb755c1a19543af31d894c2ed37b0ab487a5
+	noextract = elasticdump-6.114.0.tgz
+	source = https://registry.npmjs.org/elasticdump/-/elasticdump-6.114.0.tgz
+	sha256sums = a4c9c08848d347b2d3543d55f21935835e999a20e90567d987a2f3c59b2f091b
 
 pkgname = elasticdump
