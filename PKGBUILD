@@ -2,7 +2,7 @@
 
 pkgname=gauth
 pkgver=1.5.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Two-factor authentication (2FA) in the terminal"
 arch=('x86_64')
 url="https://github.com/pcarrier/gauth"
@@ -32,5 +32,6 @@ package() {
   cd "${pkgname}-${pkgver}"
   install -Dm755 build/${pkgname} "${pkgdir}"/usr/bin/${pkgname}
   install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
 }
 
