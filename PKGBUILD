@@ -33,12 +33,12 @@ pkgver() {
 }
 
 build() {
-	cd "$pkgname"
-	make
+    cd "$pkgname"
+    make
 }
 
 package() {
-	cd "$pkgname"
+    cd "$pkgname"
     install -Dm755 "dump1090" "$pkgdir/usr/bin/dump1090"
     install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
     install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
