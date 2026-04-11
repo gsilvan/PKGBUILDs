@@ -1,0 +1,22 @@
+pkgbase = dump1090-antirez-git
+	pkgdesc = Mode S decoder written in C by antirez
+	pkgver = r118.efe64db
+	pkgrel = 1
+	url = https://github.com/antirez/dump1090
+	arch = x86_64
+	arch = armv7h
+	arch = aarch64
+	license = BSD-3-Clause
+	makedepends = git
+	depends = glibc
+	depends = rtl-sdr
+	provides = dump1090
+	conflicts = dump1090-fa-git
+	conflicts = dump1090-git
+	conflicts = dump1090-tomswartz-git
+	conflicts = dump1090-mutability-git
+	conflicts = dump1090-mictronics-git
+	source = dump1090-antirez-git::git+https://github.com/antirez/dump1090.git
+	sha256sums = SKIP
+
+pkgname = dump1090-antirez-git
