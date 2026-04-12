@@ -5,24 +5,26 @@
 # Contributor: Timofey Titovets <nefelim4ag@gmail.com>
 
 pkgname=elasticdump
-pkgver=6.124.1
+pkgver=6.124.2
 pkgrel=1
 pkgdesc="Import and export tools for Elasticsearch"
 arch=(any)
 url="https://github.com/elasticsearch-dump/elasticsearch-dump"
 license=('Apache-2.0')
 depends=('nodejs>=8.0')
-makedepends=('npm' 'jq')
+makedepends=(
+    'jq'
+    'npm'
+)
 source=("https://registry.npmjs.org/${pkgname}/-/${pkgname}-${pkgver}.tgz")
-sha256sums=('9f2c30d0079ee387358da8513f278101888e5f0c100a5c012b23ab53dcaba928')
+sha256sums=('982c272a08cd0611f114d3a0740749a4a0f94f6510f45744b7c0f5df1d9b0a8d')
 noextract=("$pkgname-$pkgver.tgz")
 
 package() {
-    # Thanks jeremejevs and je-vv for the pointers on these!
-    npm install -g --user root --cache "${srcdir}/npm-cache" --prefix "$pkgdir/usr" "$srcdir/$pkgname-$pkgver.tgz"
+    npm install -g --cache "${srcdir}/npm-cache" --prefix "${pkgdir}/usr" "${srcdir}/${pkgname}-${pkgver}.tgz"
 
     # Fix permissions
-    find "$pkgdir"/usr -type d -exec chmod 755 {} +
+    chmod -R u=rwX,go=rX "$pkgdir"
 
     # npm gives ownership of ALL FILES to build user
     # https://bugs.archlinux.org/task/63396
@@ -38,3 +40,4 @@ package() {
     mv "$tmppackage" "$pkgjson"
     chmod 644 "$pkgjson"
 }
+
