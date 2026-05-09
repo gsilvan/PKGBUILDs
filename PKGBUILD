@@ -3,16 +3,22 @@
 pkgname=python-opensearch
 _name=opensearch-py
 _alt_name=opensearch_py
-pkgver=3.1.0
+pkgver=3.2.0
 pkgrel=1
 pkgdesc='Python Client for OpenSearch'
 arch=('any')
 url='https://github.com/opensearch-project/opensearch-py'
 license=('Apache-2.0')
-depends=('python-urllib3' 'python-requests' 'python-dateutil' 'python-certifi' 'python-events')
+depends=(
+    'python-urllib3'
+    'python-requests'
+    'python-dateutil'
+    'python-certifi'
+    'python-events'
+)
 makedepends=('python-setuptools')
 source=("${pkgname}-${pkgver}.tar.gz::https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_alt_name}-${pkgver}.tar.gz")
-sha256sums=('883573af13175ff102b61c80b77934a9e937bdcc40cda2b92051ad53336bc055')
+sha256sums=('f40fb3a295275422df2ad6d9459f667af94472d5a9e567072e9ecf163eb22613')
 
 build() {
     cd "${_alt_name}-${pkgver}"
