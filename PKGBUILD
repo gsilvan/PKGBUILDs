@@ -2,18 +2,22 @@
 # Contributor: gls < ghostlovescorebg at gmail dot com >
 
 pkgname=perl-acme-damn
-pkgver=0.08
-pkgrel=3
+pkgver=0.09
+pkgrel=1
 pkgdesc="'Unbless' Perl objects"
 _dist=Acme-Damn
-license=('PerlArtistic' 'GPL')
+license=('Artistic-1.0-Perl')
 options=('!emptydirs' purge)
 arch=('any')
-depends=('perl' 'perl-test-exception' 'perl-test-simple')
+depends=(
+    'perl'
+    'perl-test-exception'
+    'perl-test-simple'
+)
 makedepends=('perl-extutils-makemaker')
 url='https://metacpan.org/release/Acme-Damn'
-source=("https://search.cpan.org/CPAN/authors/id/I/IB/IBB/${_dist}-${pkgver}.tar.gz")
-sha256sums=('310d2d03ff912dcd42e4d946174099f41fe3a2dd57a497d6bd65baf1759b7e0e')
+source=("https://www.cpan.org/authors/id/B/BR/BRTASTIC/${_dist}-${pkgver}.tar.gz")
+sha256sums=('0d3a67ddc7b16fd0199c29eb6d41aabc4ffda05931dee893a55dfe28c9e661e2')
 
 build() {
     cd "${srcdir}/${_dist}-${pkgver}"
@@ -30,3 +34,4 @@ package() {
     cd "${srcdir}/${_dist}-${pkgver}"
     make DESTDIR="${pkgdir}" install
 }
+
