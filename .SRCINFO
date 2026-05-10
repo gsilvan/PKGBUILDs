@@ -1,9 +1,10 @@
 pkgbase = perl-acme-damn
 	pkgdesc = 'Unbless' Perl objects
 	pkgver = 0.09
-	pkgrel = 1
+	pkgrel = 2
 	url = https://metacpan.org/release/Acme-Damn
-	arch = any
+	arch = i686
+	arch = x86_64
 	license = Artistic-1.0-Perl
 	makedepends = perl-extutils-makemaker
 	depends = perl

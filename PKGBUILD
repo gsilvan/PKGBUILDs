@@ -3,12 +3,15 @@
 
 pkgname=perl-acme-damn
 pkgver=0.09
-pkgrel=1
+pkgrel=2
 pkgdesc="'Unbless' Perl objects"
 _dist=Acme-Damn
 license=('Artistic-1.0-Perl')
 options=('!emptydirs' purge)
-arch=('any')
+arch=(
+    'i686'
+    'x86_64'
+)
 depends=(
     'perl'
     'perl-test-exception'
