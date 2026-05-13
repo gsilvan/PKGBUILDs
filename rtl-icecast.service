@@ -1,0 +1,12 @@
+[Unit]
+Description = RTL-SDR Stream Source Client
+Documentation = https://github.com/j0uni/rtl_icecast
+
+[Service]
+Type = simple
+ExecStart = rtl_icecast --quiet -c /etc/rtl_icecast/config.ini
+Restart = always
+
+[Install]
+WantedBy = default.target
+

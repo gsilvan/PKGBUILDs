@@ -1,0 +1,21 @@
+pkgbase = rtl_icecast-git
+	pkgdesc = RTL-SDR Icecast streaming client
+	pkgver = r19.6cc4023
+	pkgrel = 1
+	url = https://github.com/j0uni/rtl_icecast
+	arch = x86_64
+	arch = armv7h
+	arch = aarch64
+	license = MIT
+	makedepends = git
+	depends = lame
+	depends = libshout
+	depends = liquid-dsp
+	depends = rtl-sdr
+	provides = rtl_icecast
+	source = rtl_icecast-git::git+https://github.com/j0uni/rtl_icecast.git
+	source = rtl-icecast.service
+	sha256sums = SKIP
+	sha256sums = 863bf13db405e4637ee377136a9ec1dd887849a06229543a347ddb0a30b6295c
+
+pkgname = rtl_icecast-git
