@@ -1,0 +1,4 @@
+[elasticdump]
+source = "npm"
+npm = "elasticdump"
+
