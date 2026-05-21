@@ -1,0 +1,18 @@
+pkgbase = perl-acme-damn
+	pkgdesc = 'Unbless' Perl objects
+	pkgver = 0.09
+	pkgrel = 2
+	url = https://metacpan.org/release/Acme-Damn
+	arch = i686
+	arch = x86_64
+	license = Artistic-1.0-Perl
+	makedepends = perl-extutils-makemaker
+	depends = perl
+	depends = perl-test-exception
+	depends = perl-test-simple
+	options = !emptydirs
+	options = purge
+	source = https://www.cpan.org/authors/id/B/BR/BRTASTIC/Acme-Damn-0.09.tar.gz
+	sha256sums = 0d3a67ddc7b16fd0199c29eb6d41aabc4ffda05931dee893a55dfe28c9e661e2
+
+pkgname = perl-acme-damn
