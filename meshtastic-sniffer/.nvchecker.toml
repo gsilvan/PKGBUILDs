@@ -1,0 +1,4 @@
+[meshtastic-sniffer]
+source = "git"
+git = "https://github.com/alphafox02/meshtastic-sniffer.git"
+prefix = "v"
