@@ -10,7 +10,7 @@ url='http://ftp.linux.org.uk/pub/linux/Networking/netkit'
 license=('BSD')
 depends=('glibc')
 
-source=("https://web.archive.org/web/20201216144539/http://ftp.linux.org.uk/pub/linux/Networking/netkit/bsd-finger-0.17.tar.gz"
+source=("https://ftp.gwdg.de/pub/linux/misc/linux.org.uk/people/linux/Networking/netkit/bsd-finger-${pkgver}.tar.gz"
         'LICENSE'
         'fix-manpage-typo.patch'
         'finger.socket'
