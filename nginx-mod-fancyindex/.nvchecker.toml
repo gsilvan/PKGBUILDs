@@ -1,0 +1,4 @@
+[nginx-mod-fancyindex]
+source = "git"
+git = "https://github.com/aperezdc/ngx-fancyindex.git"
+prefix = "v"
