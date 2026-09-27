@@ -36,10 +36,12 @@ build() {
 package() {
   install -Dm644 "$srcdir/"ngx-$_modname-$pkgver/LICENSE \
                  "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+  install -dm0755 "$pkgdir"/etc/nginx/modules.d
 
   cd "$srcdir"/nginx/objs
   for mod in *.so; do
     install -Dm755 $mod "$pkgdir"/usr/lib/nginx/modules/$mod
+    echo "load_module \"/usr/lib/nginx/modules/$mod\";" >> "$pkgdir/etc/nginx/modules.d/20-fancyindex.conf"
   done
 }
 
