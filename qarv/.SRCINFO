@@ -1,24 +1,25 @@
 pkgbase = qarv
 	pkgdesc = Qt GUI and API interfaces to ethernet cameras via Aravis
-	pkgver = 2.1.0
+	pkgver = 3.1.0
 	pkgrel = 1
 	url = https://github.com/AD-Vega/qarv
-	install = qarv.install
 	arch = i686
 	arch = x86_64
-	license = GPL3
+	arch = aarch64
+	license = GPL-3.0-only
 	makedepends = cmake
 	makedepends = doxygen
 	makedepends = graphviz
-	depends = qt4
-	depends = aravis
+	depends = qt5-base
+	depends = aravis<=0.8.35
 	depends = ffmpeg
-	depends = opencv
+	depends = opencv2
 	depends = gstreamer
 	provides = qarv
 	conflicts = qarv-git
-	source = qarv-2.1.0.tar.gz::https://github.com/AD-Vega/qarv/archive/2.1.0.tar.gz
-	md5sums = c2ec45d07a9ccee295c19c0d2be0b3fd
+	source = qarv-3.1.0.tar.gz::https://github.com/AD-Vega/qarv/archive/3.1.0.tar.gz
+	source = include-cstring.patch
+	sha256sums = e5a9e9527111403d6f42167da97a64f14e586d4d7a95f965f755360c192dd97c
+	sha256sums = 775c0407039c6c84befb2b6ea388cf01f9af0d0c3f3c0907143a908dbe26caa4
 
 pkgname = qarv
-

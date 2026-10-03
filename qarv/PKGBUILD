@@ -1,43 +1,63 @@
 # Maintainer: Jure Varlec <jure.varlec@ad-vega.si>
+# Contributor: Silvan Gümüsdere <silvan@trollbox.org>
+
 pkgname=qarv
-pkgver=2.1.0
+pkgver=3.1.0
 pkgrel=1
 pkgdesc="Qt GUI and API interfaces to ethernet cameras via Aravis"
-arch=( i686 x86_64 )
+arch=(
+  'i686'
+  'x86_64'
+  'aarch64'
+)
 url="https://github.com/AD-Vega/${pkgname}"
-license=('GPL3')
-depends=( qt4 aravis ffmpeg opencv gstreamer )
-makedepends=( cmake doxygen graphviz )
-checkdepends=()
-optdepends=()
-provides=( ${pkgname} )
-conflicts=( ${pkgname}-git )
-replaces=()
-backup=()
-options=()
-install=$pkgname.install
-changelog=
-source=( "${pkgname}-${pkgver}.tar.gz::https://github.com/AD-Vega/${pkgname}/archive/${pkgver}.tar.gz" )
-noextract=()
-md5sums=( 'c2ec45d07a9ccee295c19c0d2be0b3fd' )
+license=('GPL-3.0-only')
+depends=(
+  'qt5-base'
+  'aravis<=0.8.35'
+  'ffmpeg'
+  'opencv2'
+  'gstreamer'
+)
+makedepends=(
+  'cmake'
+  'doxygen'
+  'graphviz'
+)
+provides=('qarv')
+conflicts=('qarv-git')
+source=(
+  "${pkgname}-${pkgver}.tar.gz::https://github.com/AD-Vega/${pkgname}/archive/${pkgver}.tar.gz"
+  "include-cstring.patch"
+)
+sha256sums=(
+  'e5a9e9527111403d6f42167da97a64f14e586d4d7a95f965f755360c192dd97c'
+  '775c0407039c6c84befb2b6ea388cf01f9af0d0c3f3c0907143a908dbe26caa4'
+)
+
+prepare() {
+  cd "$pkgname-$pkgver"
+  patch -Np1 -i "$srcdir/include-cstring.patch"
+}
 
 build() {
-  cd $srcdir
-  [ -d build ] && rm -r build
-  mkdir build
-  cd build
-  cmake -DCMAKE_INSTALL_PREFIX=/usr/ "$srcdir/$pkgname-$pkgver/"
-  make doc
-  make
+  local cmake_options=(
+    -B build
+    -S "$pkgname-$pkgver"
+    -W no-dev
+    -D CMAKE_BUILD_TYPE=None
+    -D CMAKE_INSTALL_PREFIX=/usr
+    -D OpenCV_DIR=/opt/opencv2/share/OpenCV
+  )
+  cmake "${cmake_options[@]}"
+  cmake --build build --target all doc
 }
 
 package() {
-  cd "$srcdir/build"
-  make DESTDIR="$pkgdir/" install
-  local docdest="$pkgdir/usr/share/doc/$pkgname/"
-  mkdir -p "$docdest"
-  cp "$srcdir/$pkgname-$pkgver/"{README,NEWS,AUTHORS} "$docdest"
-  cp -r apidoc/html "$docdest/api"
+  DESTDIR="$pkgdir" cmake --install build
+  install -d "$pkgdir/usr/share/doc/$pkgname/apidoc"
+  cp -a build/apidoc/. "$pkgdir/usr/share/doc/$pkgname/apidoc/"
+  cd $pkgname-$pkgver
+  install -Dm644 README NEWS AUTHORS -t "$pkgdir/usr/share/doc/$pkgname"
 }
 
-# vim:set ts=2 sw=2 et:
