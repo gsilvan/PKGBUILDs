@@ -5,12 +5,13 @@ pkgbase = qarv
 	url = https://github.com/AD-Vega/qarv
 	arch = i686
 	arch = x86_64
-	arch = aarch64
-	license = GPL-3.0-only
+	license = GPL-3.0-or-later
 	makedepends = cmake
 	makedepends = doxygen
 	makedepends = graphviz
 	depends = qt5-base
+	depends = qt5-svg
+	depends = qt5-tools
 	depends = aravis<=0.8.35
 	depends = ffmpeg
 	depends = opencv2

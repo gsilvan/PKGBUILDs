@@ -8,12 +8,13 @@ pkgdesc="Qt GUI and API interfaces to ethernet cameras via Aravis"
 arch=(
   'i686'
   'x86_64'
-  'aarch64'
 )
 url="https://github.com/AD-Vega/${pkgname}"
-license=('GPL-3.0-only')
+license=('GPL-3.0-or-later')
 depends=(
   'qt5-base'
+  'qt5-svg'
+  'qt5-tools'
   'aravis<=0.8.35'
   'ffmpeg'
   'opencv2'
@@ -44,7 +45,7 @@ build() {
   local cmake_options=(
     -B build
     -S "$pkgname-$pkgver"
-    -W no-dev
+    -W no-author
     -D CMAKE_BUILD_TYPE=None
     -D CMAKE_INSTALL_PREFIX=/usr
     -D OpenCV_DIR=/opt/opencv2/share/OpenCV
