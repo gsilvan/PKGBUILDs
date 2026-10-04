@@ -15,7 +15,7 @@ depends=(
   'qt5-base'
   'qt5-svg'
   'qt5-tools'
-  'aravis<=0.8.35'
+  'aravis<0.9'
   'ffmpeg'
   'opencv2'
   'gstreamer'
