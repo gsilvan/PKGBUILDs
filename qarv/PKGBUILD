@@ -8,6 +8,7 @@ pkgdesc="Qt GUI and API interfaces to ethernet cameras via Aravis"
 arch=(
   'i686'
   'x86_64'
+  'aarch64'
 )
 url="https://github.com/AD-Vega/${pkgname}"
 license=('GPL-3.0-or-later')
@@ -17,7 +18,7 @@ depends=(
   'qt5-tools'
   'aravis<0.9'
   'ffmpeg'
-  'opencv2'
+  'opencv'
   'gstreamer'
 )
 makedepends=(
@@ -30,15 +31,18 @@ conflicts=('qarv-git')
 source=(
   "${pkgname}-${pkgver}.tar.gz::https://github.com/AD-Vega/${pkgname}/archive/${pkgver}.tar.gz"
   "include-cstring.patch"
+  "opencv5.patch"
 )
 sha256sums=(
   'e5a9e9527111403d6f42167da97a64f14e586d4d7a95f965f755360c192dd97c'
   '775c0407039c6c84befb2b6ea388cf01f9af0d0c3f3c0907143a908dbe26caa4'
+  '1613e8fdb85e7d72c1306c4f51cbdf1fb485c25a9e0cfa5ab877742752faddcd'
 )
 
 prepare() {
   cd "$pkgname-$pkgver"
   patch -Np1 -i "$srcdir/include-cstring.patch"
+  patch -Np1 -i "$srcdir/opencv5.patch"
 }
 
 build() {
@@ -48,7 +52,6 @@ build() {
     -W no-author
     -D CMAKE_BUILD_TYPE=None
     -D CMAKE_INSTALL_PREFIX=/usr
-    -D OpenCV_DIR=/opt/opencv2/share/OpenCV
   )
   cmake "${cmake_options[@]}"
   cmake --build build --target all doc
