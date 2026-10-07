@@ -1,9 +1,0 @@
-diff --git a/src/qarvmainwindow.cpp b/src/qarvmainwindow.cpp
-index 054edac..df80bfd 100644
---- a/src/qarvmainwindow.cpp
-+++ b/src/qarvmainwindow.cpp
-@@ -1,3 +1,4 @@
-+#include <cstring>
- /*
-     QArv, a Qt interface to aravis.
-     Copyright (C) 2012-2015 Jure Varlec <jure.varlec@ad-vega.si>
